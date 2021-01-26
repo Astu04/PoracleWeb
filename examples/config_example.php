@@ -78,6 +78,7 @@ $max_pokemon="721";
 #$custom_title="";
 $register_command="!poracle";
 $location_command="!location";
+$exclude_areas=["AreaA", "AreaB"];
 
 // Quests Options
 
