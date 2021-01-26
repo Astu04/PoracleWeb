@@ -93,11 +93,15 @@ function get_areas() {
     if ($json['type'] == "FeatureCollection" || isset($json['features'])) {
         $listOfFeatures = $json['features'];
         foreach ($listOfFeatures as $i => $feature) {
-            array_push($areas, $feature['properties']['name']);
-        }
+	    if (!in_array($feature['properties']['name'], $exclude_areas)) {
+                array_push($areas, $feature['properties']['name']);
+	    }
+	}
     } else {
         foreach ($json as $i => $area) {
-            array_push($areas, $area['name']);
+	   if (!in_array($area['name'], $exclude_areas)) {
+              array_push($areas, $area['name']);
+           }
         }
     }
 
